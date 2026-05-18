@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Brian &amp; Angel — 25 July 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Cinzel:wght@400;500&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,600&family=Cinzel:wght@400;500&family=Lato:wght@300;400&display=swap" rel="stylesheet">
 <style>
 
 /* =============================================
@@ -24,6 +24,8 @@
   --text-mid:   #343434;
   --text-light: #545454;
   --focus-ring: #143d27;
+  --mobile-cream: #f2e7d9;
+  --mobile-cream-soft: #f6ede2;
 }
 
 html { scroll-behavior: smooth; }
@@ -66,6 +68,7 @@ select:focus-visible {
   opacity: 0.6;
 }
 .gold-heart { font-size: 13px; }
+.ampersand-gold { color: #b98a3b; }
 .icon-inline {
   display: inline-flex;
   align-items: center;
@@ -239,12 +242,13 @@ select:focus-visible {
 
 /* Mobile wrapper */
 .mobile-wrapper {
-  max-width: 480px;
-  margin: 0 auto;
-  background: var(--cream);
-  min-height: 100vh;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  background: var(--mobile-cream);
+  min-height: 100dvh;
   overflow-x: hidden;
-  box-shadow: 0 0 40px rgba(0,0,0,0.1);
+  box-shadow: none;
 }
 
 /* Mobile hero */
@@ -252,18 +256,24 @@ select:focus-visible {
   position: relative;
   width: 100%;
   overflow: hidden;
-  min-height: 380px;
+  min-height: 356px;
 }
 .mob-hero-photo {
-  width: 100%; height: 400px;
+  width: 100%; height: 374px;
   object-fit: cover; object-position: center 68%;
   display: block; filter: brightness(0.92) saturate(0.9);
 }
 .mob-hero::after {
   content: '';
   position: absolute; bottom: 0; left: 0; right: 0;
-  height: 130px;
-  background: linear-gradient(to bottom, transparent, var(--cream));
+  height: 104px;
+  background: linear-gradient(
+    to bottom,
+    rgba(242,231,217,0) 0%,
+    rgba(242,231,217,0.18) 38%,
+    rgba(242,231,217,0.62) 72%,
+    var(--mobile-cream) 100%
+  );
   pointer-events: none; z-index: 4;
 }
 .mob-floral-tl { position: absolute; top: 0; left: 0; width: 150px; pointer-events: none; z-index: 5; }
@@ -272,17 +282,17 @@ select:focus-visible {
 
 /* Mobile names */
 .mob-names {
-  text-align: center; padding: 16px 24px 24px;
-  background: var(--cream); margin-top: 0; position: relative; z-index: 6;
+  text-align: center; padding: 12px 24px 18px;
+  background: var(--mobile-cream); margin-top: 0; position: relative; z-index: 6;
 }
 .mob-tagline { font-family: 'Cinzel', serif; font-size: 12px; font-weight: 500; letter-spacing: 2px; color: var(--text-mid); text-transform: uppercase; margin-bottom: 6px; }
 .mob-couple-names { font-family: 'Great Vibes', cursive; font-size: 62px; color: var(--green-dark); line-height: 1.1; margin-bottom: 10px; text-shadow: 0 1px 2px rgba(0,0,0,0.06); }
-.mob-subtitle { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 17px; font-weight: 500; color: var(--text-mid); }
+.mob-subtitle { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 20px; font-weight: 600; color: var(--text-dark); }
 
 /* Mobile details row */
 .mob-details {
   display: flex; align-items: center; justify-content: center;
-  padding: 16px 24px; background: var(--cream);
+  padding: 10px 24px 8px; background: var(--mobile-cream);
 }
 .mob-detail-item { display: flex; align-items: center; gap: 7px; }
 .mob-detail-icon {
@@ -297,9 +307,9 @@ select:focus-visible {
 .mob-detail-sep { width: 1px; height: 28px; background: var(--gold); opacity: 0.4; margin: 0 18px; }
 
 /* Mobile invite text */
-.mob-invite { text-align: center; padding: 18px 32px 6px; background: var(--cream); }
-.mob-invite p { font-family: 'Cormorant Garamond', serif; font-size: 15.5px; font-weight: 500; color: var(--text-mid); line-height: 1.7; }
-.mob-heart { text-align: center; font-size: 20px; color: var(--green-dark); opacity: 0.5; padding: 10px 0 18px; background: var(--cream); }
+.mob-invite { text-align: center; padding: 8px 32px 2px; background: var(--mobile-cream); }
+.mob-invite p { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 600; color: var(--text-dark); line-height: 1.7; }
+.mob-heart { text-align: center; font-size: 20px; color: var(--green-dark); opacity: 0.6; padding: 4px 0 12px; background: var(--mobile-cream); }
 
 /* Mobile buttons */
 .mob-btn-primary {
@@ -326,9 +336,55 @@ select:focus-visible {
 
 /* Mobile gift section */
 .mob-gift {
-  background: var(--warm-white);
-  border-radius: 28px 28px 0 0;
+  position: relative;
+  overflow: hidden;
+  background:
+    repeating-linear-gradient(0deg, rgba(122,90,36,0.035) 0 1px, rgba(255,255,255,0) 1px 7px),
+    repeating-linear-gradient(90deg, rgba(255,255,255,0.18) 0 1px, rgba(255,255,255,0) 1px 9px),
+    radial-gradient(circle at 18% 14%, rgba(185,138,59,0.16) 0%, rgba(185,138,59,0.06) 20%, transparent 44%),
+    radial-gradient(circle at 82% 18%, rgba(122,90,36,0.12) 0%, rgba(122,90,36,0.04) 18%, transparent 38%),
+    linear-gradient(180deg, #f9f1e7 0%, #f3e8db 48%, #efe1d0 100%);
+  border-radius: 32px 32px 0 0;
+  border: 1px solid rgba(185,138,59,0.20);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.72),
+    inset 0 0 0 1px rgba(255,255,255,0.16),
+    0 -12px 28px rgba(122,90,36,0.06);
   padding: 32px 24px 40px;
+}
+.mob-gift::before,
+.mob-gift::after {
+  content: '';
+  position: absolute;
+  border-radius: 999px;
+  pointer-events: none;
+  z-index: 0;
+}
+.mob-gift::before {
+  width: 280px;
+  height: 180px;
+  top: -36px;
+  left: -94px;
+  background:
+    radial-gradient(circle at 30% 45%, rgba(185,138,59,0.18) 0%, rgba(185,138,59,0.07) 24%, transparent 54%),
+    radial-gradient(circle at 58% 52%, rgba(255,255,255,0.22) 0%, rgba(255,255,255,0.08) 20%, transparent 48%);
+  filter: blur(14px);
+  transform: rotate(-8deg);
+}
+.mob-gift::after {
+  width: 220px;
+  height: 220px;
+  right: -84px;
+  bottom: -96px;
+  background:
+    radial-gradient(circle at 42% 38%, rgba(122,90,36,0.14) 0%, rgba(122,90,36,0.05) 24%, transparent 54%),
+    radial-gradient(circle at 62% 58%, rgba(185,138,59,0.10) 0%, rgba(185,138,59,0.03) 20%, transparent 48%);
+  filter: blur(16px);
+  transform: rotate(10deg);
+}
+.mob-gift > * {
+  position: relative;
+  z-index: 1;
 }
 .mob-gift-title { font-family: 'Great Vibes', cursive; font-size: 42px; color: var(--green-dark); text-align: center; margin-bottom: 4px; }
 .mob-gift-divider { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 16px; color: var(--gold); }
@@ -337,11 +393,12 @@ select:focus-visible {
 .mob-gift-desc { font-family: 'Cormorant Garamond', serif; font-size: 15px; font-weight: 500; color: var(--text-mid); text-align: center; line-height: 1.75; margin-bottom: 22px; }
 .mob-gift-options { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 .mob-gift-card {
-  background: var(--cream); border-radius: 16px; padding: 16px 14px;
+  background: rgba(255,250,244,0.96); border-radius: 18px; padding: 16px 14px;
+  border: 1px solid rgba(185,138,59,0.18);
   display: flex; align-items: center; gap: 10px;
-  cursor: pointer; transition: box-shadow 0.2s, transform 0.15s; border: 1px solid transparent;
+  cursor: pointer; transition: box-shadow 0.2s, transform 0.15s, border-color 0.2s;
 }
-.mob-gift-card:hover { box-shadow: 0 4px 18px rgba(45,90,61,0.12); transform: translateY(-2px); border-color: rgba(45,90,61,0.15); }
+.mob-gift-card:hover { box-shadow: 0 8px 24px rgba(122,90,36,0.12); transform: translateY(-2px); border-color: rgba(185,138,59,0.34); }
 .mob-gift-icon {
   color: var(--gold);
   flex-shrink: 0;
@@ -972,7 +1029,7 @@ select:focus-visible {
     <div class="dt-gift-gold-div"><span>♥</span></div>
     <p class="dt-gift-desc">Your presence is the greatest gift of all. But if you'd like to bless our journey, you may contribute using any of the options below.</p>
     <div class="dt-gift-cards">
-      <div class="dt-gift-card" onclick="openModal('bank')">
+      <div class="dt-gift-card" onclick="window.location.href='https://brianwedsangel.web.app/'">
         <div class="dt-gift-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" class="icon-svg"><path d="M3 10h18M5 10v8M10 10v8M14 10v8M19 10v8M3 18h18M12 4l9 4H3l9-4Z"></path></svg></div>
         <div class="dt-gift-card-info">
           <strong>Bank Transfer</strong>
@@ -980,7 +1037,7 @@ select:focus-visible {
         </div>
         <div class="dt-gift-card-arrow">›</div>
       </div>
-      <div class="dt-gift-card" onclick="openModal('mobile')">
+      <div class="dt-gift-card" onclick="window.location.href='https://brianwedsangel.web.app/'">
         <div class="dt-gift-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" class="icon-svg"><rect x="8" y="3" width="8" height="18" rx="2"></rect><path d="M11 6h2M11 18h2"></path></svg></div>
         <div class="dt-gift-card-info">
           <strong>Mobile Money</strong>
@@ -1068,7 +1125,7 @@ select:focus-visible {
   <div class="mob-names">
     <p class="mob-tagline">Together With Their Families</p>
     <div class="gold-divider"><span class="gold-heart">♥</span></div>
-    <h1 class="mob-couple-names">Brian &amp; Angel</h1>
+    <h1 class="mob-couple-names">Brian <span class="ampersand-gold">&amp;</span> Angel</h1>
     <p class="mob-subtitle">Two hearts, one beautiful forever.</p>
     <div class="gold-divider"><span class="gold-heart">♥</span></div>
   </div>
@@ -1113,12 +1170,12 @@ select:focus-visible {
       using any method below.
     </p>
     <div class="mob-gift-options">
-      <div class="mob-gift-card" onclick="openModal('bank')">
+      <div class="mob-gift-card" onclick="window.location.href='https://brianwedsangel.web.app/'">
         <div class="mob-gift-icon" aria-hidden="true"><svg viewBox="0 0 24 24" class="icon-svg"><path d="M3 10h18M5 10v8M10 10v8M14 10v8M19 10v8M3 18h18M12 4l9 4H3l9-4Z"></path></svg></div>
         <div class="mob-gift-info"><strong>Bank Transfer</strong></div>
         <div class="mob-gift-arrow">›</div>
       </div>
-      <div class="mob-gift-card" onclick="openModal('mobile')">
+      <div class="mob-gift-card" onclick="window.location.href='https://brianwedsangel.web.app/'">
         <div class="mob-gift-icon" aria-hidden="true"><svg viewBox="0 0 24 24" class="icon-svg"><rect x="8" y="3" width="8" height="18" rx="2"></rect><path d="M11 6h2M11 18h2"></path></svg></div>
         <div class="mob-gift-info"><strong>Mobile Money</strong></div>
         <div class="mob-gift-arrow">›</div>
